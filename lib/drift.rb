@@ -1,4 +1,4 @@
 module Drift
   require "drift/version"
-  require "redcarpet"
+  require "github/markup"
 end
