@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.email       = ["jim@roboticmethod.com}"]
   s.homepage    = "https://github.com/jpruetting/drift"
   s.summary     = "Blogging engine for Rails."
-  s.description = "Drift is a minimal blogging engine for Rails."
+  s.description = "Drift is a static blogging engine for Rails."
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"]
