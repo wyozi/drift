@@ -57,7 +57,6 @@ module Drift
 
         attributes[:content] = raw_model_data.partition(yaml_attributes[0][0]).last
         attributes[:file] = file
-        attributes[:template_engine] = file.split('.')[-2]
 
         new(attributes)
       end
