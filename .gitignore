@@ -7,5 +7,5 @@ test/dummy/tmp/
 test/dummy/.sass-cache
 
 /Gemfile.lock
-/.DS_Store
+.DS_Store
 *.gem
