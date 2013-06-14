@@ -4,17 +4,15 @@ module Drift
       attr_accessor :markup_ext
 
       def source
-        @source || 'db/static/blog_posts'
+        @source ||= 'db/static/blog_posts'
       end
 
       def markup_ext
-        @markup_ext || 'md'
+        @markup_ext ||= 'md'
       end
 
       def find_by_slug(slug)
-        file = all_files.detect do |f|
-          slug == parse_slug_from_filename(f)
-        end
+        file = all_files.detect{ |f| slug == parse_slug_from_filename(f) }
 
         find_by_file(file)
       end
