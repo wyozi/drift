@@ -6,7 +6,7 @@ module Drift
 
     def self.find_by_slug(slug)
       file = self.all_files.detect do |f|
-        slug == parse_slug_from_file(f)
+        slug == parse_slug_from_filename(f)
       end
 
       find_by_file(file)
@@ -14,7 +14,7 @@ module Drift
 
     def initialize(args)
       super
-      set_attributes_from_file args[:file]
+      set_attributes_from_filename args[:file]
     end
 
     def content
@@ -24,17 +24,17 @@ module Drift
 
     private
 
-    def self.parse_date_from_file(file)
-      Date.parse file.split(/[_|\.]/)[0]
+    def self.parse_date_from_filename(filename)
+      Date.parse filename.split(/[_|\.]/)[0]
     end
 
-    def self.parse_slug_from_file(file)
-      file.split(/[_|\.]/)[1]
+    def self.parse_slug_from_filename(filename)
+      filename.split(/[_|\.]/)[1]
     end
 
-    def set_attributes_from_file(file)
-      self.date = self.class.parse_date_from_file(file)
-      self.slug = self.class.parse_slug_from_file(file)
+    def set_attributes_from_filename(filename)
+      self.date = self.class.parse_date_from_filename(filename)
+      self.slug = self.class.parse_slug_from_filename(filename)
     end
 
   end
