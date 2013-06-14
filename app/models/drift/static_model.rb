@@ -1,14 +1,6 @@
 module Drift
   class StaticModel
-
-    def initialize(args)
-      args.each do |k, v|
-        instance_variable_set("@#{k.to_s.underscore}", v) unless v.nil?
-      end
-    end
-
     class << self
-
       attr_accessor :source
 
       def all
@@ -60,7 +52,12 @@ module Drift
 
         new(attributes)
       end
+    end
 
+    def initialize(args)
+      args.each do |k, v|
+        instance_variable_set("@#{k.to_s.underscore}", v) unless v.nil?
+      end
     end
   end
 end
