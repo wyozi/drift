@@ -2,7 +2,7 @@ module Drift
   class StaticModel
 
     def initialize(args)
-      args.each do |k,v|
+      args.each do |k, v|
         instance_variable_set("@#{k.to_s.underscore}", v) unless v.nil?
       end
     end
