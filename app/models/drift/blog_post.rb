@@ -2,7 +2,7 @@ module Drift
   class BlogPost < Drift::StaticModel
     self.source = 'db/static/blog_posts'
 
-    attr_accessor :title, :date, :content, :slug, :author
+    attr_accessor :date, :slug, :content, :title, :author, :version
 
     def self.find_by_slug(slug)
       file = self.all_files.detect do |f|
