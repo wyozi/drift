@@ -18,13 +18,29 @@ Usage
 
 #### Creating a blog post:
 ```ruby
-rails g drift:blog_post 'Demo Blog Post'
+$ rails g drift:blog_post 'Demo Blog Post'
+
+# creates db/static/blog_posts/2013-06-15_235801_demo-blog-post.md
 ```
 
 The default location for blog posts is `db/static/blog_posts`.
 The deafult markup language is Markdown.
 
-You can change these settings by overriding the blog_post model: 
+You can specify another markup language when creating a blog post:
+```ruby
+$ rails g drift:blog_post 'Demo Blog Post' textile
+# creates db/static/blog_posts/2013-06-15_235801_demo-blog-post.textile
+
+$ rails g drift:blog_post 'Demo Blog Post' rdoc
+# creates db/static/blog_posts/2013-06-15_235801_demo-blog-post.rdoc
+
+$ rails g drift:blog_post 'Demo Blog Post' asciidoc
+# creates db/static/blog_posts/2013-06-15_235801_demo-blog-post.asciidoc
+```
+
+#### Overriding default settings:
+
+You can change the default source location and markup language by overriding the blog_post model: 
 
 `app/models/drift/blog_post.rb`
 ```ruby
@@ -36,8 +52,11 @@ module Drift
 end
 ```
 
-You can also use the model to extend functionality for blog posts: 
+#### Extending functionality:
 
+You can also use the blog_post model to extend functionality: 
+
+`app/models/drift/blog_post.rb`
 ```ruby
 module Drift
   class BlogPost < Drift::BlogPostBase
@@ -46,7 +65,7 @@ module Drift
 end
 ```
 
-Blog post format:
+#### Blog post format:
 
 ```
 title: Demo Blog Post
@@ -84,7 +103,9 @@ gna. In in fermentum est. In lacinia venenatis turpis, a rutrum metus laoreet a.
 adipiscing vel enim eu scelerisque.
 ```
 
-Data set via yaml at the top of a blog post is available on the blog post model. 
+#### Blog post attributes:
+
+Yaml data set at the top of a blog post is available on the blog post model. 
 
 Don't forget to separate yaml data from blog post content with two blank lines!
 
@@ -95,7 +116,7 @@ author: John Smith
 version: 3
 category: Apples
 ```
-Blog post model:
+Blog post attributes:
 ```ruby
 @blog_post.title # Title
 @blog_post.author # Author
