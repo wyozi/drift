@@ -30,9 +30,9 @@ module Drift
 
     attr_accessor :created_at, :slug, :content, :title, :author, :version
 
-    def initialize(args)
+    def initialize(args = {})
       super
-      set_attributes_from_filename args[:file]
+      set_attributes_from_filename(args[:file]) unless args[:file].nil?
     end
 
     def content

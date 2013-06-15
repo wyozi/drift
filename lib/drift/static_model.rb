@@ -54,7 +54,7 @@ module Drift
       end
     end
 
-    def initialize(args)
+    def initialize(args = {})
       args.each do |k, v|
         instance_variable_set("@#{k.to_s.underscore}", v) unless v.nil?
       end
