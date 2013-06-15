@@ -123,3 +123,22 @@ Blog post attributes:
 @blog_post.version # 1
 @blog_post.category # Apples
 ```
+
+#### Rails controller
+
+Index: `http://www.example.com/blog_posts`
+
+Show: `http://www.example.com/blog_posts/demo-blog-post`
+
+```ruby
+class BlogPostsController < ApplicationController
+  def index
+    @blog_posts = Drift::BlogPost.all
+  end
+
+  def show
+    @blog_post = Drift::BlogPost.find_by_slug(params['id'])
+  end
+end
+```
+
