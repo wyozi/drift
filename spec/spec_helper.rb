@@ -1,6 +1,13 @@
 ENV['RAILS_ENV'] ||= 'test'
 
-require File.expand_path("../dummy/config/environment.rb",  __FILE__)
-require 'rspec/rails'
+require File.expand_path("../dummy/config/environment", __FILE__)
 
-require_relative '../lib/drift/blog_post'
+require 'rspec/rails'
+require 'drift'
+
+require_relative '../app/models/drift/blog_post'
+
+RSpec.configure do |config|
+  config.color_enabled = true
+  config.formatter = 'documentation'
+end
