@@ -125,6 +125,11 @@ Blog post attributes:
 ```
 
 #### Rails controller
+
+Index: `http://www.example.com/blog_posts`
+
+Show: `http://www.example.com/blog_posts/demo-blog-post`
+
 ```ruby
 class BlogPostsController < ApplicationController
   def index
