@@ -49,9 +49,9 @@ end
 Blog post format:
 
 ```
-title: Title
-author: Author
-version: 1
+title: Demo Blog Post
+author: John Smith
+version: 3
 
 
 Blog content starts here. Keep two blank lines between the yaml attributes and the content.
@@ -84,8 +84,9 @@ gna. In in fermentum est. In lacinia venenatis turpis, a rutrum metus laoreet a.
 adipiscing vel enim eu scelerisque.
 ```
 
+Data set via yaml at the top of a blog post is available on the blog post model. 
 
-Data set via yaml at the top of a blog post is available on the blog post model.
+Don't forget to separate yaml data from blog post content with two blank lines!
 
 Yaml data:
 ```
