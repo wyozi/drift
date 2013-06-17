@@ -124,7 +124,7 @@ Blog post attributes:
 @blog_post.category # Apples
 ```
 
-#### Rails controller example
+#### Rails controller example:
 
 Index url: `http://www.example.com/blog_posts`
 
