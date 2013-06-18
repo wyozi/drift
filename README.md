@@ -124,11 +124,11 @@ Blog post attributes:
 @blog_post.category # Apples
 ```
 
-#### Rails controller
+#### Rails controller example:
 
-Index: `http://www.example.com/blog_posts`
+Index url: `http://www.example.com/blog_posts`
 
-Show: `http://www.example.com/blog_posts/demo-blog-post`
+Show url: `http://www.example.com/blog_posts/demo-blog-post`
 
 ```ruby
 class BlogPostsController < ApplicationController
