@@ -14,7 +14,7 @@ module Drift
     private
 
     def filename
-      "#{date}_#{time}_#{title.parameterize}.#{markup_ext}"
+      "#{date}_#{time}_#{title.humanize.parameterize}.#{markup_ext}"
     end
 
     def date
