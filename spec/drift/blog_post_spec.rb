@@ -3,9 +3,9 @@ require_relative '../spec_helper'
 module Drift
   describe BlogPost do
     before :each do
-      @datetime = Time.new(2013, 05, 14, 14, 20, 30) 
+      @datetime = Time.local(2013, 05, 14, 14, 20, 30) 
       @slug = 'test-blog-post'
-      @file = "#{@datetime.year}-#{@datetime.month}-#{@datetime.day}_#{@datetime.hour}#{@datetime.min}#{@datetime.sec}_#{@slug}.textile"
+      @file = "#{@datetime.strftime('%Y')}-#{@datetime.strftime('%m')}-#{@datetime.strftime('%d')}_#{@datetime.hour}#{@datetime.min}#{@datetime.sec}_#{@slug}.textile"
       @blog_post = BlogPost.new(:file => @file)
     end
 
