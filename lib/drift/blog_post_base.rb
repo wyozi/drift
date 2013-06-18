@@ -20,7 +20,7 @@ module Drift
       def parse_datetime_from_filename(filename)
         date = filename.split(/[_|\.]/)[0]
         time = filename.split(/[_|\.]/)[1]
-        DateTime.parse "#{date} #{time[0..1]}:#{time[2..3]}:#{time[4..5]}"
+        Time.parse "#{date} #{time[0..1]}:#{time[2..3]}:#{time[4..5]}"
       end
 
       def parse_slug_from_filename(filename)
