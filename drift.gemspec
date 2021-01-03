@@ -14,9 +14,9 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"]
 
-  s.add_dependency 'rails', '~> 3.2.0'
-  s.add_dependency 'github-markup', '~> 0.7.5'
-  s.add_dependency 'redcarpet', '~> 2.2.0'
+  s.add_dependency 'rails', '~> 6.0.3'
+  s.add_dependency 'github-markup', '~> 3.0.5'
+  s.add_dependency 'redcarpet', '~> 3.5.1'
 
   s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'sqlite3'
