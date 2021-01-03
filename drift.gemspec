@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'rails', '~> 6.0.3'
   s.add_dependency 'github-markup', '~> 3.0.5'
-  s.add_dependency 'redcarpet', '~> 3.5.1'
+  s.add_dependency 'commonmarker', '~> 0.21.0'
 
   s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'sqlite3'
