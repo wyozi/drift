@@ -38,6 +38,46 @@ $ rails g drift:blog_post 'Demo Blog Post' asciidoc
 # creates db/static/blog_posts/2013-06-15_235801_demo-blog-post.asciidoc
 ```
 
+#### Use in Rails controller and views
+
+`config/routes.rb`
+```ruby
+resources :blog, only: [:index, :show]
+```
+
+`app/controllers/blog_controller.rb`
+```ruby
+class BlogController < ApplicationController
+  def index
+    @blog_posts = Drift::BlogPost.all
+  end
+
+  def show
+    @blog_post = Drift::BlogPost.find_by_slug(params['id'])
+  end
+end
+```
+
+`app/views/blog/index.html.erb`
+```ruby
+<ul>
+  <% for b in @blog_posts do %>
+    <li>
+      <%= link_to(b.title, blog_path(id: b.slug)) %>
+    </li>
+  <% end %>
+</ul>
+```
+
+`app/views/blog/show.html.erb`
+```ruby
+<h1><%= @blog_post.title %></h1>
+
+<p>
+  <%= @blog_post.content.html_safe %>
+</p>
+```
+
 #### Overriding default settings:
 
 You can change the default source location and markup language by overriding the blog_post model: 
@@ -123,22 +163,3 @@ Blog post attributes:
 @blog_post.version # 1
 @blog_post.category # Apples
 ```
-
-#### Rails controller example:
-
-Index url: `http://www.example.com/blog_posts`
-
-Show url: `http://www.example.com/blog_posts/demo-blog-post`
-
-```ruby
-class BlogPostsController < ApplicationController
-  def index
-    @blog_posts = Drift::BlogPost.all
-  end
-
-  def show
-    @blog_post = Drift::BlogPost.find_by_slug(params['id'])
-  end
-end
-```
-
